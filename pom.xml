@@ -19,9 +19,9 @@
 
     <properties>
         <java.version>21</java.version>
-        <!-- Day 4 (Docker Scout): Spring Boot's default Tomcat has known CVEs.
-             The one-line fix is to pin a patched version here:
-             <tomcat.version>10.1.55</tomcat.version> -->
+        <!-- DEMO: uncomment the line below to patch the 4 critical Tomcat CVEs that
+             Docker Scout flags. This is the one-line "fix" in DEMO-SCRIPT.md Part 4. -->
+        <tomcat.version>10.1.55</tomcat.version>
     </properties>
 
     <dependencies>
