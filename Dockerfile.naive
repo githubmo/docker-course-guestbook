@@ -1,0 +1,13 @@
+# The WRONG way, kept only for the Lab 2 size comparison.
+#
+#   docker build -f Dockerfile.naive -t svc:naive .
+#
+# One stage: the shipped image carries the full JDK, Maven, the local .m2 repo
+# and all of your source. Runs as root. ~680 MB vs ~215 MB for the multi-stage
+# build, and every one of those extra packages is attack surface.
+FROM maven:3.9-eclipse-temurin-21
+WORKDIR /app
+COPY . .
+RUN mvn -q -B clean package -DskipTests
+EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "target/guestbook-1.0.0.jar"]
