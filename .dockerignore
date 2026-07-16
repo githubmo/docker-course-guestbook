@@ -1,0 +1,14 @@
+# build output
+target/
+build/
+
+# vcs & IDE
+.git
+.idea
+
+# deps you don't ship
+node_modules/
+
+# secrets
+.env
+#.pem
